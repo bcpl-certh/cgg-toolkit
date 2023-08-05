@@ -1,0 +1,8 @@
+Cast v1.0
+---------
+Compilation Instructions:
+
+In order to compile CAST please use:
+
+gcc cast.c -o cast -lm
+
