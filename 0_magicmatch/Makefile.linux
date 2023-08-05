@@ -1,0 +1,34 @@
+CP = cp
+CC = gcc 
+CPP = g++
+CPPFLAGS = -O5
+CFLAGS = -O5
+
+ALLOBJ = CMagicException.o CmdLineOption.o FastaFileDB.o main.o md5c.o md5class.o
+
+all : magicmatch
+
+magicmatch :  $(ALLOBJ)
+	$(CPP) $(CPPFLAGS) $(LIBS) -o magicmatch CMagicException.o CmdLineOption.o FastaFileDB.o main.o md5c.o md5class.o
+
+CMagicException.o : CMagicException.cpp
+	$(CPP) $(CPPFLAGS) -c CMagicException.cpp
+
+CmdLineOption.o : CmdLineOption.cpp  
+	$(CPP) $(CPPFLAGS) -c CmdLineOption.cpp
+
+FastaFileDB.o : FastaFileDB.cpp  
+	$(CPP) $(CPPFLAGS) -c FastaFileDB.cpp 
+
+main.o : main.cpp  
+	$(CPP) $(CPPFLAGS) -c main.cpp
+
+md5class.o : md5class.cpp  
+	$(CPP) $(CPPFLAGS) -c md5class.cpp 
+
+md5c.o : md5c.c  
+	$(CC) $(CFLAGS) -c md5c.c
+
+clean:
+	rm *.o
+
