@@ -1,0 +1,70 @@
+
+LICENSE INFORMATION
+-------------------
+
+This is the Academic version of GeneRAGE, by running this program you must abide
+by the academic license below. For Commercial and Profit-Making use of GeneRAGE
+you must obtain a commercial license. Please contact rage@ebi.ac.uk for details.
+
+-----------------------------------------------------------------------------------
+EMBL Academic Software License Agreement
+
+PLEASE READ BEFORE USING THIS SOFTWARE
+
+1. The European Molecular Biology Laboratory (EMBL)
+   Meyerhofstrasse 1, D-69012 Heidelberg, Germany,
+   hereby grants a free non-exclusive non-transferrable licence for the
+   GeneRAGE software package - SOFTWARE -
+   to you, a representative of an academic/non-profit research 
+   organisation - LICENSEE -
+
+2. This licence is for scientific non-profit and non-commercial use only.
+Any other use and use of modifications of this software for other purposes, 
+alone or integrated into  other software, requires the prior consent of EMBL.
+EMBL may demand compensation from the  LICENSEE for uses other than those 
+granted in this licence.
+
+No property rights with respect to the  SOFTWARE,  program or source code 
+shall transfer to the LICENSEE through this agreement.
+
+The source code has to be kept confidential. The LICENSEE, the user and any 
+research assistants, co-workers or other workers who may use the  SOFTWARE 
+agree to not give the source code to third parties or grant licences which 
+include the  SOFTWARE , alone or integrated into other software, to third 
+parties without the prior consent of the  laboratory. EMBL may demand compensation 
+from the LICENSEE for transfer of confidential  information and licences granted 
+to third parties by the LICENSEE.
+
+Either party's obligation for confidentiality shall not extend to any information 
+which is or becomes  generally available to the public, is already known or 
+subsequently disclosed by third parties to the  recipient party and at its free 
+disposal.
+
+3. The EMBL does not assume any responsibility for the SOFTWARE and the use of 
+the SOFTWARE.  EMBL will not assume any liability for damages occurring through 
+the use of the SOFTWARE. EMBL  does not guarantee the suitability of the SOFTWARE 
+for any applications.
+
+4. EMBL will disclose any known rights of third parties to the SOFTWARE. However 
+EMBL does not  warrant for any possible infringement of rights.
+
+The LICENSEE has to acquire on his own all necessary licenses for supporting 
+software if not otherwise  agreed in writing.
+
+5. The LICENSEE will inform EMBL of any defects found in the SOFTWARE. The LICENSEE 
+will also  inform the EMBL about any modification made to the SOFTWARE.
+
+6. In any publications resulting from the SOFTWARE the LICENSEE will properly cite 
+by the following  reference and the version number of the SOFTWARE:
+----------------------------------------------------------------------------------- 
+
+7. In case the SOFTWARE  is or will be under the control of the LICENSEE before this 
+agreement is signed,  EMBL gives consent to use of the SOFTWARE under the condition 
+of the LICENSEE 's prior consent to  this agreement.
+
+8. This agreement is subject to German law.
+
+It may be terminated by either side with two months notice.  In case of termination, 
+the LICENSEE will return the SOFTWARE and its modifications including all copies on 
+any media to EMBL.
+

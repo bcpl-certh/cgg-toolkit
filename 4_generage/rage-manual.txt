@@ -1,0 +1,173 @@
+GeneRAGE v1.0 Manual
+====================
+(c) EMBL-EBI 1999/2000
+
+Please Cite:
+GeneRAGE: a robust algorithm for sequence clustering and domain detection
+Anton J. Enright & Christos A. Ouzounis: Bioinformatics 2000 16: 451-457 
+
+For Problems Please email:
+rage@ebi.ac.uk
+
+For further information please go to the RAGE website:
+http://www.ebi.ac.uk/research/cgg/services/rage/
+
+
+
+
+
+
+Introduction
+------------
+GeneRAGE is an algorithm for clustering protein sequences into families
+based on similarity information obtained from BLAST or other such sequence
+similarity search algorithms. GeneRAGE uses a novel method for removal
+of false-positive and false-negative BLAST similarity assignments by
+calling a fast Smith-Waterman routine (PRSS3), which also allows detection
+and resolution of multi-domain proteins. This detection and correction step
+allows rapid accurate clustering of protein sequences into families.
+
+Licensing
+---------
+
+GeneRAGE is free for academic and non-profit use. Source code is not available
+but binaries from most platforms are easily available. Please read the license.txt
+file for information about the academic license. For commercial and profit-making
+use of geneRAGE, you must obtain a commercial license. 
+
+Contact rage@ebi.ac.uk for commercial license information.
+
+
+
+
+
+
+
+**** IMPORTANT ****
+
+Please make sure you have PRSS3 installed before you run geneRAGE.
+PRSS3 is part of Bill Pearson's FASTA (3.3) package which can be obtained at:
+
+ftp://ftp.ebi.ac.uk/pub/software/unix/fasta/fasta33t07b.shar.Z
+
+When you have installed the prss33 binary, then set the environment
+variable PRSSDIR to the directory containing the binary.
+
+Example you have installed prss33 at /usr/local/seqanal/bin/prss33
+type 'setenv PRSSDIR /usr/local/seqanal/bin/'
+
+Without setting PRSSDIR, GeneRAGE will search for the prss33 binary
+in the default path.
+
+
+
+GeneRAGE Input Format
+---------------------
+
+GeneRAGE requires two files as input for a clustering run.
+
+1) A FASTA formatted sequence file containing all sequences to be clustered
+
+2) A Parsed similarity file containing pairwise similarities between all proteins
+in the FASTA sequence file (Generally produced from a BLAST results file).
+
+Example Parsed File:
+
+ACT2_ARATH      ACTB_XENBO      
+ACT2_ARATH      ACTB_CRIGR      
+ACT2_ARATH      ACTB_SALSA      
+ACT2_ARATH      ACT2_HALRO      
+ACT2_ARATH      ACTD_STRPU      
+ACT2_ARATH      ACTT_FUGRU     
+
+A Perl script 'parse' is provided to make a parsed similarity file from an NCBI
+BLASTp 2.0 results file.
+
+eg. perl parse results.out > results.parsed
+
+Output Format
+-------------
+
+GeneRAGE produces two output files
+
+1) clusters.out
+
+A File containing all proteins and which cluster they belong to. This file generally
+needs to be sorted with 'sort -n clusters.out' to sort by cluster number. Clusters
+are all numeric and start at cluster 1. Multi-Domain information is also contained in
+this file.
+
+Example clusters.out file:
+
+Cluster #	Protein
+---------	-------
+1               USO1_YEAST Multi-Domain Family
+1               UTRO_HUMAN Domain 1
+1               VINC_CAEEL
+1               VINC_CHICK
+1               VINC_HUMAN Domain 1
+1               VINC_MOUSE Domain 1
+1               YB3D_SCHPO Domain 1
+1               YGW6_YEAST Domain 1
+2               ACT1_ARATH 
+2               ACT1_ARTSX 
+2               ACT1_BOMMO 
+2               ACT1_DAUCA 
+2               ACT1_DICDI 
+2               ACT1_DROME 
+2               ACT1_FUGRU 
+
+** Important **
+Given the way in which the multi-domain detection step is implemented, it is possible
+for any given protein to be in multiple clusters if it contains multiple-domains.
+
+2) paralogues.out
+
+A file showing all remaining similarities for any given protein, after both passes
+of the algorithm
+
+Example paralogues.out file:
+
+Protein			Colon Separated List of its remaining homologues
+-------			------------------------------------------------
+AGI6_TRYBB
+AKA5_BOVIN              AKA5_HUMAN
+AKA5_HUMAN              AKA5_BOVIN
+AKAC_HUMAN
+AKR_ARATH               ANK1_HUMAN:ANK1_MOUSE:ANK2_HUMAN:Q61307:Q63618:Q9QY27:Q9Z2B4
+AL11_SCHPO              41_HUMAN:41_MOUSE:41_XENLA:AAC1_HUMAN:AAC2_HUMAN:AAC3_HUMAN
+
+
+
+
+
+
+Running GeneRAGE
+----------------
+
+Assuming prss33 is installed from the FASTA package and the PRSSDIR environment
+variable is set, then geneRAGE can be run as follows:
+
+'generage sequences.fasta sequences.parsed'
+
+Output files will be created in the directory from which the program was called.
+
+
+GeneRAGE Command Line Options
+-----------------------------
+
+-help			Show some helpful information on commandline options
+-verbose		Run GeneRAGE in verbose mode (Useful to see whats going on)
+-nosym			Turn off the symmetrification step (Not Recommended)
+-nomd			Turn off the multi-domain detection step (Not Recommended)
+-exhaustive		Turn off all optimizations (Slower but more accurate)
+-z1			Smith-Waterman Z-Score Threshold for symmetrification (Default=10)
+-z2			Smith-Waterman Z-Score Threshold for multi-domain detection (Default=2)
+
+For large runs (> 1000 proteins) it is recommended to run rage with the verbose mode,
+sending output into a log file which can be monitored during the run.
+
+
+
+-----------------------
+Anton Enright 5/12/2000
