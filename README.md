@@ -1,5 +1,11 @@
 # cgg-toolkit
 CGG toolkit version 1.0.1
+Citation: Vasileiou D, Karapiperis C, Baltsavia I,
+Chasapi A, Ahre´n D, Janssen PJ, et al. (2023) CGG
+toolkit: Software components for computational
+genomics. PLoS Comput Biol 19(11): e1011498.
+https://doi.org/10.1371/journal.pcbi.1011498
+
 ## Excerpt from abstract:
 
 We re-launch a range of established software components for computational genomics, as legacy version 1.0.1, suitable for sequence matching, masking, searching, clustering and visualization for protein family discovery, annotation and functional characterization on a genome scale.
